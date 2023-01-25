@@ -26,6 +26,12 @@ class HashTable:
     if not found:
       self.arr[h].append((key,val))
 
+  def __delitem__(self, key):
+    h = self.get_hash(key)
+    for index, element in enumerate(self.arr[h]):
+      if element[0] == key:
+        del self.arr[h][index]
+
 t = HashTable()
 
 t["march 6"] = 120
@@ -37,4 +43,6 @@ print("-------------------")
 print(t.get_hash("march 6"))
 print(t.get_hash("march 17"))
 print(f'Value at april 17: {t["april 17"]}')
+print(t.arr)
+del t["march 17"]
 print(t.arr)
