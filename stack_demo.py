@@ -19,9 +19,19 @@ class Stack:
   def size(self):
     return len(self.container)
 
+  def reverse_string(self, str):
+    reversed_str = ""
+    for ch in str:
+      self.container.append(ch)
+    for i in range(len(str)):
+      reversed_str += self.container.pop()
+
+    return reversed_str
+
 
 s = Stack()
 s.push(5)
 #print(s.peek())
 #s.pop()
+print(s.reverse_string("We will conquer COVI-19"))
 
