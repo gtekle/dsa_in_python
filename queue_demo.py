@@ -1,10 +1,26 @@
 from collections import deque
 
-q = deque()
+class Queue:
+  def __init__(self):
+    self.buffer = deque()
 
-q.appendleft(5)
-q.appendleft(8)
-q.appendleft(27)
+  def enqueue(self, val):
+    self.buffer.appendleft(val)
 
-print(q)
-print(q.pop())
+  def dequeue(self):
+    return self.buffer.pop()
+
+  def is_empty(self):
+    return len(self.buffer) == 0
+
+  def size(self):
+    return len(self.buffer)
+
+
+q = Queue()
+q.enqueue(4)
+q.enqueue(6)
+q.enqueue(3)
+
+print(q.buffer)
+print(q.dequeue())
