@@ -1,8 +1,10 @@
-wmt_queue = []
+from collections import deque
 
-wmt_queue.insert(0, 131.10)
-wmt_queue.insert(0, 132.12)
-wmt_queue.insert(0, 135)
+q = deque()
 
-print(wmt_queue)
-print(wmt_queue.pop())
+q.appendleft(5)
+q.appendleft(8)
+q.appendleft(27)
+
+print(q)
+print(q.pop())
