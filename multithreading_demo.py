@@ -1,4 +1,5 @@
 import time
+import threading
 
 def calc_square(nums):
   print("calculate square numbers")
@@ -16,8 +17,14 @@ def calc_cube(nums):
 arr = [2, 3, 8, 9]
 
 t = time.time()
-calc_square(arr)
-calc_cube(arr)
+th1 = threading.Thread(target=calc_square, args=(arr,))
+th2 = threading.Thread(target=calc_cube, args=(arr,))
+
+th1.start()
+th2.start()
+
+th1.join()
+th2.join()
 
 print("done in : ", time.time() - t)
 print("Hah... I am done with all my work now!")
